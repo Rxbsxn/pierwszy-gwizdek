@@ -2,9 +2,9 @@ FROM node:22-bookworm-slim AS build
 WORKDIR /app
 ENV NODE_ENV=production
 ENV STRAPI_TELEMETRY_DISABLED=true
-COPY package*.json ./
+COPY cms/package*.json ./
 RUN npm ci --include=dev
-COPY . .
+COPY cms/ .
 RUN npm run build
 
 FROM node:22-bookworm-slim AS runtime
