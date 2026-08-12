@@ -19,5 +19,5 @@ Bootstrap Strapi tworzy początkową, opublikowaną treść tylko wtedy, gdy sin
 
 - Netlify wymaga `STRAPI_URL` i `STRAPI_API_TOKEN`.
 - Railway wymaga sekretów Strapi, `DATABASE_URL`, `DATABASE_CLIENT=postgres`, `PUBLIC_URL` oraz danych Cloudinary.
-- Webhook Strapi dla publikacji treści powinien wywoływać Netlify Build Hook.
+- `NETLIFY_BUILD_HOOK` w Railway uruchamia przebudowę Netlify po aktualizacji, publikacji lub wycofaniu Landing Page.
 - Sekrety muszą pozostać w panelach usług; pliki `.env` są ignorowane przez Git.
