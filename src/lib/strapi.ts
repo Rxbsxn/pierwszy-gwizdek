@@ -43,7 +43,7 @@ function assertLandingPage(value: unknown): asserts value is LandingPage {
   if (requiredStrings.some((field) => typeof field !== 'string' || !field.trim())) throw new Error('Strapi Landing Page contains empty required fields.');
 }
 
-export async function getLandingPage(): Promise<LandingPage> {
+export async function getLandingPage(status: 'published' | 'draft' = 'published'): Promise<LandingPage> {
   const baseUrl = (import.meta.env.STRAPI_URL || '').replace(/\/$/, '');
   const token = import.meta.env.STRAPI_API_TOKEN;
   if (!baseUrl || !token) throw new Error('STRAPI_URL and STRAPI_API_TOKEN are required to build the site.');
@@ -59,6 +59,7 @@ export async function getLandingPage(): Promise<LandingPage> {
     'populate[location]': 'true',
     'populate[contact]': 'true',
     'populate[footer]': 'true',
+    status,
   });
   const response = await fetch(`${baseUrl}/api/landing-page?${query}`, {
     headers: { Authorization: `Bearer ${token}` },
