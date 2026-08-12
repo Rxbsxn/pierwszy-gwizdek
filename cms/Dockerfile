@@ -3,7 +3,7 @@ WORKDIR /app
 ENV NODE_ENV=production
 ENV STRAPI_TELEMETRY_DISABLED=true
 COPY package*.json ./
-RUN npm ci --include=dev
+RUN npm install --include=dev --no-audit --no-fund
 COPY . .
 RUN npm run build
 
