@@ -17,5 +17,5 @@ export default [
       headers: ['Content-Type', 'Authorization', 'Origin', 'Accept'],
     },
   },
-  'strapi::poweredBy', 'strapi::query', 'strapi::body', 'strapi::session', 'strapi::public',
+  'strapi::poweredBy', 'strapi::query', 'strapi::body', 'strapi::session', 'strapi::favicon', 'strapi::public',
 ];
