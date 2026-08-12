@@ -1,0 +1,1 @@
+{"collectionName":"components_sections_contacts","info":{"displayName":"Kontakt i CTA"},"attributes":{"kicker":{"type":"string","required":true},"heading":{"type":"string","required":true},"text":{"type":"text","required":true},"buttonLabel":{"type":"string","required":true},"email":{"type":"email","required":true},"emailSubject":{"type":"string","required":true}}}

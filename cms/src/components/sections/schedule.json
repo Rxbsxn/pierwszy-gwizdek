@@ -1,0 +1,1 @@
+{"collectionName":"components_sections_schedules","info":{"displayName":"Harmonogram"},"attributes":{"kicker":{"type":"string","required":true},"heading":{"type":"string","required":true},"description":{"type":"text","required":true},"note":{"type":"text","required":true},"cardCtaLabel":{"type":"string","required":true}}}

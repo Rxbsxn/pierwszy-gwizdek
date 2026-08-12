@@ -1,0 +1,19 @@
+{
+  "kind": "singleType",
+  "collectionName": "landing_pages",
+  "info": { "singularName": "landing-page", "pluralName": "landing-pages", "displayName": "Landing Page", "description": "Treść strony Pierwszy Gwizdek" },
+  "options": { "draftAndPublish": true },
+  "pluginOptions": {},
+  "attributes": {
+    "seo": { "type": "component", "component": "sections.seo", "required": true },
+    "navigation": { "type": "component", "component": "sections.navigation", "required": true },
+    "hero": { "type": "component", "component": "sections.hero", "required": true },
+    "intro": { "type": "component", "component": "sections.intro", "required": true },
+    "benefits": { "type": "component", "component": "sections.benefit", "repeatable": true },
+    "schedule": { "type": "component", "component": "sections.schedule", "required": true },
+    "groups": { "type": "component", "component": "sections.training-group", "repeatable": true },
+    "location": { "type": "component", "component": "sections.location", "required": true },
+    "contact": { "type": "component", "component": "sections.contact", "required": true },
+    "footer": { "type": "component", "component": "sections.footer", "required": true }
+  }
+}

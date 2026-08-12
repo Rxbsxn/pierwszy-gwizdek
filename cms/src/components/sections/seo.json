@@ -1,0 +1,1 @@
+{"collectionName":"components_sections_seos","info":{"displayName":"SEO"},"attributes":{"title":{"type":"string","required":true},"description":{"type":"text","required":true}}}

@@ -1,0 +1,20 @@
+{
+  "name": "pierwszy-gwizdek-cms",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Strapi CMS for Pierwszy Gwizdek",
+  "scripts": { "build": "strapi build", "develop": "strapi develop", "start": "strapi start" },
+  "dependencies": {
+    "@strapi/plugin-cloud": "5.51.2",
+    "@strapi/plugin-users-permissions": "5.51.2",
+    "@strapi/provider-upload-cloudinary": "5.51.2",
+    "@strapi/strapi": "5.51.2",
+    "better-sqlite3": "^12.2.0",
+    "pg": "^8.16.3",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.30.1",
+    "styled-components": "^6.1.19"
+  },
+  "engines": { "node": ">=20.0.0 <=26.x.x", "npm": ">=6.0.0" }
+}

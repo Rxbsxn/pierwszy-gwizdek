@@ -1,0 +1,1 @@
+{"collectionName":"components_shared_nav_items","info":{"displayName":"Pozycja nawigacji"},"attributes":{"label":{"type":"string","required":true},"target":{"type":"enumeration","enum":["#o-nas","#harmonogram","#miejsce","#kontakt"],"required":true}}}

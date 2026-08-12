@@ -1,0 +1,1 @@
+{"collectionName":"components_sections_benefits","info":{"displayName":"Korzyść"},"attributes":{"icon":{"type":"string","required":true},"title":{"type":"string","required":true},"text":{"type":"text","required":true},"color":{"type":"enumeration","enum":["lime","yellow","blue"],"required":true}}}

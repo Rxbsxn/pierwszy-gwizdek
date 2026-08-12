@@ -1,0 +1,1 @@
+{"collectionName":"components_sections_navigations","info":{"displayName":"Nawigacja"},"attributes":{"brandPrefix":{"type":"string","required":true},"brandAccent":{"type":"string","required":true},"items":{"type":"component","component":"shared.nav-item","repeatable":true},"ctaLabel":{"type":"string","required":true}}}
