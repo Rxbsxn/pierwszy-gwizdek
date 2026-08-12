@@ -6,7 +6,10 @@ dist/
 !.env.example
 .tmp/
 .cache/
-cms/public/uploads/
+cms/public/uploads/*
+!cms/public/uploads/.gitkeep
+cms/.strapi/
+cms/.strapi-updater.json
 
 # Local Netlify folder
 .netlify
