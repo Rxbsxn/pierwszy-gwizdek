@@ -2,9 +2,8 @@
 import '../styles/global.css';
 import { resolveMediaUrl, type LandingPage } from '../lib/strapi';
 
-interface Props { content: LandingPage; preview?: boolean }
-const { content, preview = false } = Astro.props;
-const strapiUrl = import.meta.env.STRAPI_URL || '';
+interface Props { content: LandingPage; preview?: boolean; strapiUrl?: string }
+const { content, preview = false, strapiUrl = '' } = Astro.props;
 const heroImage = resolveMediaUrl(content.hero.image, content.hero.imageFallbackUrl, strapiUrl);
 const mailtoUrl = `mailto:${content.contact.email}?subject=${encodeURIComponent(content.contact.emailSubject)}`;
 ---

@@ -1,9 +1,11 @@
 ---
-export const prerender = true;
+export const prerender = false;
 import LandingPage from '../components/LandingPage.astro';
-import { getLandingPage } from '../lib/strapi';
+import { getLandingPage, type StrapiConfig } from '../lib/strapi';
 
-const content = await getLandingPage('published');
+const runtimeEnv = (Astro.locals.runtime?.env || import.meta.env) as StrapiConfig;
+const content = await getLandingPage('published', runtimeEnv);
+Astro.response.headers.set('Cache-Control', 'public, max-age=0, s-maxage=300, stale-while-revalidate=86400');
 ---
 
-<LandingPage content={content} />
+<LandingPage content={content} strapiUrl={runtimeEnv.STRAPI_URL} />

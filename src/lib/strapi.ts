@@ -23,6 +23,11 @@ export interface LandingPage {
   footer: { description: string; copyrightName: string };
 }
 
+export interface StrapiConfig {
+  STRAPI_URL?: string;
+  STRAPI_API_TOKEN?: string;
+}
+
 const requiredSections: Array<keyof LandingPage> = [
   'seo', 'navigation', 'hero', 'intro', 'benefits', 'schedule', 'groups', 'location', 'contact', 'footer',
 ];
@@ -43,10 +48,13 @@ function assertLandingPage(value: unknown): asserts value is LandingPage {
   if (requiredStrings.some((field) => typeof field !== 'string' || !field.trim())) throw new Error('Strapi Landing Page contains empty required fields.');
 }
 
-export async function getLandingPage(status: 'published' | 'draft' = 'published'): Promise<LandingPage> {
-  const baseUrl = (import.meta.env.STRAPI_URL || '').replace(/\/$/, '');
-  const token = import.meta.env.STRAPI_API_TOKEN;
-  if (!baseUrl || !token) throw new Error('STRAPI_URL and STRAPI_API_TOKEN are required to build the site.');
+export async function getLandingPage(
+  status: 'published' | 'draft' = 'published',
+  config: StrapiConfig = import.meta.env as StrapiConfig,
+): Promise<LandingPage> {
+  const baseUrl = (config.STRAPI_URL || '').replace(/\/$/, '');
+  const token = config.STRAPI_API_TOKEN;
+  if (!baseUrl || !token) throw new Error('STRAPI_URL and STRAPI_API_TOKEN are required to render the site.');
 
   const query = new URLSearchParams({
     'populate[seo]': 'true',

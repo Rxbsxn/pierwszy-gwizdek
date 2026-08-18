@@ -1,10 +1,11 @@
 ---
 export const prerender = false;
 import LandingPage from '../components/LandingPage.astro';
-import { getLandingPage } from '../lib/strapi';
+import { getLandingPage, type StrapiConfig } from '../lib/strapi';
 
+const runtimeEnv = (Astro.locals.runtime?.env || import.meta.env) as StrapiConfig & { PREVIEW_SECRET?: string };
 const suppliedSecret = Astro.url.searchParams.get('secret') || '';
-const expectedSecret = import.meta.env.PREVIEW_SECRET || '';
+const expectedSecret = runtimeEnv.PREVIEW_SECRET || '';
 const status = Astro.url.searchParams.get('status');
 
 if (!expectedSecret || suppliedSecret !== expectedSecret) {
@@ -15,9 +16,9 @@ if (status !== 'draft' && status !== 'published') {
   return new Response('Nieprawidłowy status podglądu.', { status: 400 });
 }
 
-const content = await getLandingPage(status);
+const content = await getLandingPage(status, runtimeEnv);
 Astro.response.headers.set('Cache-Control', 'private, no-store, max-age=0');
 Astro.response.headers.set('X-Robots-Tag', 'noindex, nofollow');
 ---
 
-<LandingPage content={content} preview={status === 'draft'} />
+<LandingPage content={content} preview={status === 'draft'} strapiUrl={runtimeEnv.STRAPI_URL} />

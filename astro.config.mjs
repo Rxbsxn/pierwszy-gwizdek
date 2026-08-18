@@ -1,8 +1,12 @@
 import { defineConfig } from 'astro/config';
-import netlify from '@astrojs/netlify';
+import cloudflare from '@astrojs/cloudflare';
 
 export default defineConfig({
   site: 'https://pierwszygwizdek.pl',
   output: 'server',
-  adapter: netlify(),
+  adapter: cloudflare({
+    platformProxy: {
+      enabled: true,
+    },
+  }),
 });
